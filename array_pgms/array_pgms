@@ -1,1 +1,44 @@
+import java.util.Scanner;
+
+class BinarySearchDemo {
+import java.util.Scanner;
+
+public class BinarySearchDemo {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("How many numbers? ");
+        int length = input.nextInt();
+
+        int[] nums = new int[length];
+        System.out.println("Enter the numbers in sorted order:");
+        for (int pos = 0; pos < length; pos++) {
+            nums[pos] = input.nextInt();
+        }
+
+        System.out.print("Number to search: ");
+        int target = input.nextInt();
+
+        int start = 0, end = length - 1;
+        boolean found = false;
+
+        while (start <= end) {
+            int middle = start + (end - start) / 2;
+
+            if (nums[middle] == target) {
+                System.out.println("Element found at index: " + middle);
+                found = true;
+                break;
+            } else if (target < nums[middle]) {
+                end = middle - 1;
+            } else {
+                start = middle + 1;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Element not found.");
+        }
+    }
+}
 
