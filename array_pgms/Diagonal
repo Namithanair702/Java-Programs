@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Diagonal {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter size of square matrix: ");
+        int n = sc.nextInt();
+
+        int[][] matrix = new int[n][n];
+        int sum = 0;
+
+        System.out.println("Enter matrix elements:");
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+                matrix[row][col] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            sum += matrix[i][i];
+        }
+
+        System.out.println("Sum of diagonal elements = " + sum);
+    }
+}
