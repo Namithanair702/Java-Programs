@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class Flip {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter number of columns: ");
+        int cols = sc.nextInt();
+
+        if (rows < 2 || cols < 2) {
+            System.out.println("Matrix should be at least 2x2 to flip edges.");
+            return;
+        }
+
+        int[][] matrix = new int[rows][cols];
+
+        System.out.println("Enter matrix elements:");
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                matrix[r][c] = sc.nextInt();
+            }
+        }
+
+        for (int c = 0; c < cols; c++) {
+            int temp = matrix[0][c];
+            matrix[0][c] = matrix[rows - 1][c];
+            matrix[rows - 1][c] = temp;
+        }
+
+        for (int r = 0; r < rows; r++) {
+            int temp = matrix[r][0];
+            matrix[r][0] = matrix[r][cols - 1];
+            matrix[r][cols - 1] = temp;
+        }
+
+        System.out.println("Matrix after flipping first and last rows and columns:");
+        for (int[] row : matrix) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
+}
