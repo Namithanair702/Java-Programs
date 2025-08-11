@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class CommonElements {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter size of first array: ");
+        int size1 = input.nextInt();
+        int[] first = new int[size1];
+
+        System.out.println("Enter elements for first array:");
+        for (int i = 0; i < size1; i++) {
+            first[i] = input.nextInt();
+        }
+
+        System.out.print("Enter size of second array: ");
+        int size2 = input.nextInt();
+        int[] second = new int[size2];
+
+        System.out.println("Enter elements for second array:");
+        for (int i = 0; i < size2; i++) {
+            second[i] = input.nextInt();
+        }
+
+        boolean[] isPrinted = new boolean[size1];
+        System.out.println("Common elements are:");
+        for (int i = 0; i < size1; i++) {
+            for (int j = 0; j < size2; j++) {
+                if (first[i] == second[j] && !isAlreadyPrinted(first[i], first, isPrinted, i)) {
+                    System.out.println(first[i]);
+                    isPrinted[i] = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    static boolean isAlreadyPrinted(int value, int[] array, boolean[] printed, int currentIndex) {
+        for (int k = 0; k < currentIndex; k++) {
+            if (array[k] == value && printed[k]) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
