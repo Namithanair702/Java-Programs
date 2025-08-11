@@ -11,6 +11,7 @@ class Vehicle {
         model = m;
         year = y;
         basePrice = price;
+        
     }
 
     double getResaleValue() {
@@ -127,3 +128,4 @@ public class SimpleVehicleApp {
         m.showInfo();
     }
 }
+
